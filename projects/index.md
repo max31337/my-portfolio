@@ -19,5 +19,16 @@ title: Projects
         <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/ToDo-App" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
+    <article class="rounded-lg border border-border p-4 hover:bg-accent">
+      <a class="block" href="{{ '/projects/patientmanagementsystem/' | relative_url }}">
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/sample-project/dashboard.png' | relative_url }}" alt="Patient Management System preview" />
+        <h2 class="font-medium">Patient Management System</h2>
+      </a>
+      <p class="text-sm text-muted-foreground">ASP.NET Core MVC + MSSQL with secure auth and REST API for supersystem integrations.</p>
+      <div class="mt-3 flex gap-3 text-xs">
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary {% if nil %}pointer-events-none opacity-50{% endif %}" href="#">Demo</a>
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/PatientManagementSystem" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
   </div>
 </section>
