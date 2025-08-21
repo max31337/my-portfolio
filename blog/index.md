@@ -7,7 +7,7 @@ title: Blog
     <h1 class="text-3xl font-semibold tracking-tight">Blog</h1>
     <p class="text-muted-foreground">Notes, tutorials, and updates.</p>
     <div class="mt-2 text-xs">
-      <a class="text-muted-foreground hover:text-foreground underline underline-offset-4" href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>
+      <a class="text-muted-foreground hover:text-foreground underline underline-offset-4" href="{{ '/rss/' | relative_url }}">Subscribe via RSS</a>
     </div>
   </header>
   <ul class="divide-y divide-border rounded-lg border border-border overflow-hidden">

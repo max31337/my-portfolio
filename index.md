@@ -76,6 +76,7 @@ title: Home
         {% if site.author.socials.linkedin %}
         <a href="https://www.linkedin.com/in/{{ site.author.socials.linkedin }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">LinkedIn</a>
         {% endif %}
+  <a href="{{ '/rss/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">RSS</a>
       </div>
     </div>
   </div>
