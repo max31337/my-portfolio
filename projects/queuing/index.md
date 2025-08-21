@@ -22,6 +22,8 @@ links:
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Alembic</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Tailwind</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Hardware I/O</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Docker</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Railway (trial)</span>
     </div>
     <div class="flex gap-3 text-xs">
       <a class="rounded-md border border-border px-3 py-1 hover:bg-secondary {% unless page.links.live %}pointer-events-none opacity-50{% endunless %}" href="{{ page.links.live }}">Live</a>
@@ -55,6 +57,7 @@ links:
         <li>Pydantic v2</li>
         <li>Hardware: pyserial, pywin32, serial, schedule</li>
         <li>Frontend: HTML + Tailwind</li>
+  <li>Deployment: Docker containers; trial deployments on Railway using Docker images</li>
       </ul>
     </article>
   </div>

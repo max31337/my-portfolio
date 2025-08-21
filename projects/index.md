@@ -5,7 +5,7 @@ title: Projects
 <section class="space-y-6">
   <header>
     <h1 class="text-3xl font-semibold tracking-tight">Projects</h1>
-    <p class="text-muted-foreground">Primarily C#/.NET (ASP.NET Core). Also Python FastAPI and some PHP.</p>
+  <p class="text-muted-foreground">Primarily C#/.NET (ASP.NET Core). Also Python FastAPI and some PHP. Some services are containerized with Docker; trial deployments tested on Railway using Docker images.</p>
   </header>
   <div class="grid gap-4 sm:grid-cols-2">
     <!-- WIP: FlowForge (TALL) -->

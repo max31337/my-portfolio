@@ -31,6 +31,8 @@ status: WIP
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Next.js (TypeScript)</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">shadcn/ui</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Zustand</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Docker</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Railway (trial)</span>
     </div>
     <div class="flex gap-3 text-xs">
       <a class="rounded-md border border-border px-3 py-1 hover:bg-secondary {% unless page.links.live %}pointer-events-none opacity-50{% endunless %}" href="{{ page.links.live }}">Live</a>
@@ -68,6 +70,10 @@ status: WIP
         <li>SLA module is fully functional.</li>
         <li>Real-time SLA metrics, reports, and alerts delivered via WebSockets.</li>
       </ul>
+    </article>
+    <article class="rounded-lg border border-border p-4">
+      <h2 class="font-medium mb-2">Deployment</h2>
+      <p class="text-sm text-muted-foreground">Containerized with Docker. Trial deployments tested on Railway using Docker images to validate runtime and service wiring. Exploring hosting options and CI for automated deploys.</p>
     </article>
   </div>
 
