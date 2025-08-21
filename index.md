@@ -45,13 +45,19 @@ title: Home
     </div>
     <article class="rounded-lg border border-border overflow-hidden">
       <div class="grid md:grid-cols-2">
-        <img src="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" alt="To‑Do App preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
+        <img src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="SalesOptimizer preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
         <div class="p-5 flex flex-col gap-3">
-          <h3 class="font-medium">To‑Do and Task Management App</h3>
-          <p class="text-sm text-muted-foreground">PHP + MySQL MVC app with authentication, prioritized tasks, deadlines, lists, and an analytics dashboard (charts + pie).</p>
+          <div class="flex items-center gap-2">
+            <h3 class="font-medium">SalesOptimizer (WIP)</h3>
+            <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+              <span class="size-1.5 rounded-full bg-yellow-500"></span>
+              WIP
+            </span>
+          </div>
+          <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI backend (DDD, JWT) and Next.js + TypeScript + shadcn/ui frontend.</p>
           <div class="mt-auto flex gap-3 text-xs">
-            <a href="{{ '/projects/todo-app/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Case study</a>
-            <a href="https://github.com/{{ site.author.socials.github }}/ToDo-App" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Source</a>
+            <a href="{{ '/projects/salesoptimizer/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Case study</a>
+            <a href="https://github.com/max31337/salesoptimizer" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Source</a>
           </div>
         </div>
       </div>
