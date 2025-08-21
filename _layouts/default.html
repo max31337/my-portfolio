@@ -7,50 +7,24 @@
     {% seo %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "/feed.xml" | relative_url }}" />
 
-    <!-- Tailwind config BEFORE CDN so custom tokens + dark mode are generated -->
+    <!-- Early theme init: set dark/light class before CSS loads -->
+    <script>
+      (function(){
+        try {
+          var root = document.documentElement;
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var initial = stored || (prefersDark ? 'dark' : 'light');
+          if (initial === 'dark') root.classList.add('dark');
+          root.dataset.theme = initial;
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Tailwind config (only darkMode here; colors come from CSS variables) -->
     <script>
       window.tailwind = window.tailwind || {};
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              border: {
-                DEFAULT: 'hsl(240 5.9% 90%)',
-              },
-              input: 'hsl(240 5.9% 90%)',
-              ring: 'hsl(240 4.9% 83.9%)',
-              background: 'hsl(0 0% 100%)',
-              foreground: 'hsl(240 10% 3.9%)',
-              primary: {
-                DEFAULT: 'hsl(240 5.9% 10%)',
-                foreground: 'hsl(0 0% 98%)',
-              },
-              secondary: {
-                DEFAULT: 'hsl(240 4.8% 95.9%)',
-                foreground: 'hsl(240 5.9% 10%)',
-              },
-              muted: {
-                DEFAULT: 'hsl(240 4.8% 95.9%)',
-                foreground: 'hsl(240 3.8% 46.1%)',
-              },
-              accent: {
-                DEFAULT: 'hsl(240 4.8% 95.9%)',
-                foreground: 'hsl(240 5.9% 10%)',
-              },
-              card: {
-                DEFAULT: 'hsl(0 0% 100%)',
-                foreground: 'hsl(240 10% 3.9%)',
-              },
-            },
-            borderRadius: {
-              lg: '0.5rem',
-              md: 'calc(0.5rem - 2px)',
-              sm: 'calc(0.5rem - 4px)'
-            },
-          }
-        }
-      }
+      tailwind.config = { darkMode: 'class' };
     </script>
     <!-- Tailwind CSS: use compiled CSS in production; CDN fallback for local preview -->
     {% if jekyll.environment == 'production' %}
@@ -86,9 +60,41 @@
     <style>
       :root {
         --radius: 0.5rem;
+        /* Tailwind color tokens (light) */
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 4.9% 83.9%;
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
       }
       .dark {
         color-scheme: dark;
+        /* Tailwind color tokens (dark) */
+        --border: 240 3.7% 20%;
+        --input: 240 3.7% 20%;
+        --ring: 240 3.7% 20%;
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15%;
+        --accent-foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
       }
       /* Improve readability of blog posts in light theme */
       .prose {
