@@ -12,7 +12,7 @@ title: Home
     {% endif %}
     <div>
       <h1 class="text-3xl font-semibold tracking-tight">Hi, I’m {{ site.author.name | default: 'Mark Anthony' }}.</h1>
-      <p class="text-muted-foreground">I design and build modern web apps — focusing on clean architecture, performance, and a great user experience.</p>
+  <p class="text-muted-foreground">I design and build modern web apps — focused on C#/.NET (ASP.NET Core), with range across Python FastAPI and some PHP.</p>
       <div class="mt-3 flex flex-wrap gap-3 text-xs">
         <a href="{{ '/projects/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">View projects</a>
         <a href="{{ '/blog/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Read blog</a>
@@ -24,8 +24,8 @@ title: Home
   <!-- Highlights for employers/clients -->
   <div class="grid gap-4 md:grid-cols-3">
     <article class="rounded-lg border border-border p-4">
-      <h2 class="font-medium mb-1">What I do</h2>
-      <p class="text-sm text-muted-foreground">Full‑stack web development with PHP 8, MySQL, and modern frontend tooling. I ship features end‑to‑end with maintainable code.</p>
+  <h2 class="font-medium mb-1">What I do</h2>
+  <p class="text-sm text-muted-foreground">Full‑stack C#/.NET development (ASP.NET Core + MSSQL) with modern frontend tooling. I ship features end‑to‑end with maintainable code.</p>
     </article>
     <article class="rounded-lg border border-border p-4">
       <h2 class="font-medium mb-1">How I work</h2>
