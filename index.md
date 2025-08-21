@@ -6,9 +6,9 @@ title: Home
   <!-- Hero -->
   <div class="flex items-center gap-6">
     {% if site.author.avatar %}
-    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="h-16 w-16 rounded-full border border-border object-cover"/>
+    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="h-20 w-20 sm:h-24 sm:w-24 rounded-full border border-border object-cover"/>
     {% else %}
-    <div class="size-16 rounded-full bg-gradient-to-tr from-primary to-muted"></div>
+    <div class="size-20 sm:size-24 rounded-full bg-gradient-to-tr from-primary to-muted"></div>
     {% endif %}
     <div>
       <h1 class="text-3xl font-semibold tracking-tight">Hi, I’m {{ site.author.name | default: 'Mark Anthony' }}.</h1>
