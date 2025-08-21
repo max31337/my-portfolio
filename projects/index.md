@@ -8,6 +8,24 @@ title: Projects
     <p class="text-muted-foreground">Primarily C#/.NET (ASP.NET Core). Also Python FastAPI and some PHP.</p>
   </header>
   <div class="grid gap-4 sm:grid-cols-2">
+    <!-- WIP: SalesOptimizer -->
+    <article class="rounded-lg border border-border p-4 hover:bg-accent">
+      <a class="block" href="{{ '/projects/salesoptimizer/' | relative_url }}">
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="SalesOptimizer preview" />
+        <div class="flex items-center gap-2">
+          <h2 class="font-medium">SalesOptimizer (WIP)</h2>
+          <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+            <span class="size-1.5 rounded-full bg-yellow-500"></span>
+            WIP
+          </span>
+        </div>
+      </a>
+      <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI backend (DDD, JWT) and Next.js + shadcn/ui frontend.</p>
+      <div class="mt-3 flex gap-3 text-xs">
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary {% if nil %}pointer-events-none opacity-50{% endif %}" href="#">Demo</a>
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/salesoptimizer" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
     <!-- Feature .NET project first -->
     <article class="rounded-lg border border-border p-4 hover:bg-accent">
       <a class="block" href="{{ '/projects/patientmanagementsystem/' | relative_url }}">
