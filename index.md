@@ -12,7 +12,7 @@ title: Home
     {% endif %}
     <div>
       <h1 class="text-3xl font-semibold tracking-tight">Hi, I’m {{ site.author.name | default: 'Mark Anthony' }}.</h1>
-  <p class="text-muted-foreground">I design and build modern web apps — focused on C#/.NET (ASP.NET Core), with range across Python FastAPI and some PHP.</p>
+  <p class="text-muted-foreground">I design and build modern web apps — focused on C#/.NET (ASP.NET Core), with range across Python FastAPI and some PHP and Laravel.</p>
       <div class="mt-3 flex flex-wrap gap-3 text-xs">
         <a href="{{ '/projects/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">View projects</a>
         <a href="{{ '/blog/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Read blog</a>
