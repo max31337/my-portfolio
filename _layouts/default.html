@@ -61,6 +61,32 @@
       .dark {
         color-scheme: dark;
       }
+      /* Improve readability of blog posts in light theme */
+      .prose {
+        --tw-prose-body: hsl(240 10% 3.9%);
+        --tw-prose-headings: hsl(240 10% 3.9%);
+        --tw-prose-links: hsl(240 5.9% 10%);
+        --tw-prose-bold: hsl(240 10% 3.9%);
+        --tw-prose-counters: hsl(240 3.8% 46.1%);
+        --tw-prose-bullets: hsl(240 3.8% 46.1%);
+        --tw-prose-hr: hsl(240 5.9% 90%);
+        --tw-prose-quotes: hsl(240 10% 3.9%);
+        --tw-prose-quote-borders: hsl(240 5.9% 90%);
+        --tw-prose-captions: hsl(240 3.8% 46.1%);
+        --tw-prose-code: hsl(240 10% 3.9%);
+        --tw-prose-th-borders: hsl(240 5.9% 90%);
+        --tw-prose-td-borders: hsl(240 5.9% 90%);
+      }
+      /* Hard overrides in LIGHT mode to prevent washed out text */
+      :root:not(.dark) .prose :where(h1,h2,h3,h4){
+        color: hsl(240 10% 3.9%) !important;
+      }
+      :root:not(.dark) .prose :where(p,li,blockquote,strong){
+        color: hsl(240 10% 3.9%) !important;
+      }
+      :root:not(.dark) .prose :where(a){
+        color: hsl(240 5.9% 10%) !important;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
