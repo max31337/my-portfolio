@@ -5,26 +5,28 @@
       <a class="hover:text-foreground" href="{{ '/' | relative_url }}">Home</a>
       <a class="hover:text-foreground" href="{{ '/blog/' | relative_url }}">Blog</a>
       <a class="hover:text-foreground" href="{{ '/projects/' | relative_url }}">Projects</a>
-      <button id="theme-toggle" class="rounded-md border border-border px-2 py-1 text-xs hover:bg-accent hover:text-accent-foreground">
-        <span class="[data-theme='light']:hidden" id="theme-dark-label">Dark</span>
-        <span class="hidden [data-theme='light']:inline" id="theme-light-label">Light</span>
+      <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border px-2 py-1 text-xs hover:bg-accent hover:text-accent-foreground">
+        <span id="theme-dark-label" class="inline">Dark</span>
+        <span id="theme-light-label" class="hidden">Light</span>
       </button>
     </nav>
   </div>
   <script>
-    // Simple dark mode toggle with localStorage
+    // Simple dark mode toggle with localStorage, set ASAP
     const root = document.documentElement;
-    const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = stored || (prefersDark ? 'dark' : 'light');
-    if (initial === 'dark') root.classList.add('dark');
-    root.dataset.theme = initial;
+    (() => {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (prefersDark ? 'dark' : 'light');
+      if (initial === 'dark') root.classList.add('dark');
+      root.dataset.theme = initial;
+    })();
     const btn = document.getElementById('theme-toggle');
     const updateLabels = () => {
       const isDark = root.classList.contains('dark');
       root.dataset.theme = isDark ? 'dark' : 'light';
-      document.getElementById('theme-dark-label').classList.toggle('hidden', isDark);
-      document.getElementById('theme-light-label').classList.toggle('hidden', !isDark);
+  document.getElementById('theme-dark-label').classList.toggle('hidden', isDark);
+  document.getElementById('theme-light-label').classList.toggle('hidden', !isDark);
     };
     updateLabels();
     btn?.addEventListener('click', () => {

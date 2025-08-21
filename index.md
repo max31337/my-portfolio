@@ -6,7 +6,7 @@ title: Home
   <div class="flex items-center gap-6">
     <div class="size-16 rounded-full bg-gradient-to-tr from-primary to-muted"></div>
     <div>
-      <h1 class="text-3xl font-semibold tracking-tight">Hi, I’m Max.</h1>
+      <h1 class="text-3xl font-semibold tracking-tight">Hi, I’m Mark Anthony.</h1>
       <p class="text-muted-foreground">I build web experiences and write about what I learn.</p>
     </div>
   </div>

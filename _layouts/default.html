@@ -7,11 +7,11 @@
     {% seo %}
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "/feed.xml" | relative_url }}" />
 
-  <!-- Tailwind CSS via CDN with Typography plugin for prose styles -->
-  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <!-- Tailwind config BEFORE CDN so custom tokens + dark mode are generated -->
     <script>
-      // Tailwind config with shadcn-inspired tokens
+      window.tailwind = window.tailwind || {};
       tailwind.config = {
+        darkMode: 'class',
         theme: {
           extend: {
             colors: {
@@ -49,10 +49,11 @@
               sm: 'calc(0.5rem - 4px)'
             },
           }
-        },
-        darkMode: 'class'
+        }
       }
     </script>
+    <!-- Tailwind CSS via CDN with Typography plugin for prose styles -->
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
     <style>
       :root {
         --radius: 0.5rem;

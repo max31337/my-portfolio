@@ -1,5 +1,5 @@
 # Site settings
-title: Max Navarro — Portfolio
+title: Mark Anthony Navarro — Portfolio
 description: Personal portfolio and blog. Projects, writings, and contact.
 # Production URL for GitHub Pages user/org site
 url: "https://max31337.github.io"
@@ -45,8 +45,8 @@ exclude:
 
 # Author
 author:
-  name: Max Navarro
-  email: your@email.com
+  name: Mark Anthony Navarro
+  email: navarro.markanthony.tud@gmail.com
   socials:
     github: max31337
-    linkedin: your-linkedin-handle
+    linkedin: markanthonynavarro
