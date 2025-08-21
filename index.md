@@ -72,6 +72,7 @@ title: Home
         <p class="text-sm text-muted-foreground">Have a project in mind or a role to fill? I’m happy to chat.</p>
       </div>
       <div class="flex gap-3 text-xs">
+  <a href="{{ '/resume/#request' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Request resume</a>
   <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.author.email }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Email me</a>
         {% if site.author.socials.linkedin %}
         <a href="https://www.linkedin.com/in/{{ site.author.socials.linkedin }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">LinkedIn</a>
