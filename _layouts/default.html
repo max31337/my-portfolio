@@ -87,6 +87,27 @@
       :root:not(.dark) .prose :where(a){
         color: hsl(240 5.9% 10%) !important;
       }
+      /* Inline code tokens (e.g., `deletedAt`) — ensure high contrast in light mode */
+      :root:not(.dark) .prose code {
+        color: hsl(240 10% 3.9%) !important;
+        background-color: hsl(240 4.8% 95.9%) !important; /* muted */
+        border: 1px solid hsl(240 5.9% 90%) !important;
+        border-radius: 0.25rem;
+        padding: 0.15em 0.35em;
+      }
+      :root:not(.dark) .prose a code {
+        color: hsl(240 5.9% 10%) !important; /* match link foreground */
+      }
+      :root:not(.dark) .prose code::before,
+      :root:not(.dark) .prose code::after {
+        content: none !important; /* remove extra backticks from typography plugin */
+      }
+      /* Dark mode inline code remains readable */
+      .dark .prose code {
+        color: hsl(0 0% 98%) !important;
+        background-color: hsl(240 3.7% 15%) !important;
+        border: 1px solid hsl(240 3.7% 20%) !important;
+      }
     </style>
   </head>
   <body class="min-h-screen bg-background text-foreground flex flex-col">
