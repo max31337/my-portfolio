@@ -4,7 +4,7 @@
       {% if site.author.avatar %}
       <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="hidden sm:block h-7 w-7 rounded-full border border-border object-cover"/>
       {% endif %}
-      <span class="truncate max-w-[50vw] sm:max-w-none text-sm sm:text-base">{{ site.title }}</span>
+  <span class="whitespace-nowrap text-sm sm:text-base">{{ site.title }}</span>
     </a>
     <div class="flex items-center gap-2 sm:gap-3">
       <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border p-1.5 hover:bg-accent hover:text-accent-foreground">
