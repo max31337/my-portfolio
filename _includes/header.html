@@ -1,16 +1,16 @@
 <header class="sticky top-0 z-40 w-full border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
   <div class="mx-auto max-w-3xl px-4 h-14 flex items-center justify-between">
-    <a href="{{ '/' | relative_url }}" class="flex items-center gap-3 font-medium tracking-tight">
+    <a href="{{ '/' | relative_url }}" class="min-w-0 flex items-center gap-3 font-medium tracking-tight">
       {% if site.author.avatar %}
-      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="h-7 w-7 rounded-full border border-border object-cover"/>
+      <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="hidden sm:block h-7 w-7 rounded-full border border-border object-cover"/>
       {% endif %}
-      <span>{{ site.title }}</span>
+      <span class="truncate max-w-[50vw] sm:max-w-none text-sm sm:text-base">{{ site.title }}</span>
     </a>
-    <nav class="flex items-center gap-4 text-sm text-muted-foreground">
+    <nav class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
       <a class="hover:text-foreground" href="{{ '/' | relative_url }}">Home</a>
       <a class="hover:text-foreground" href="{{ '/blog/' | relative_url }}">Blog</a>
       <a class="hover:text-foreground" href="{{ '/projects/' | relative_url }}">Projects</a>
-      <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border px-2 py-1 text-xs hover:bg-accent hover:text-accent-foreground">
+      <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border px-2 py-1 text-[11px] sm:text-xs hover:bg-accent hover:text-accent-foreground">
         <span id="theme-dark-label" class="inline">Dark</span>
         <span id="theme-light-label" class="hidden">Light</span>
       </button>
