@@ -6,7 +6,7 @@ title: Home
   <!-- Hero -->
   <div class="flex items-center gap-6">
     {% if site.author.avatar %}
-    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="h-20 w-20 sm:h-24 sm:w-24 rounded-full border border-border object-cover"/>
+    <img src="{{ site.author.avatar | relative_url }}" alt="{{ site.author.name }} avatar" class="h-28 w-28 sm:h-44 sm:w-44 rounded-full border border-border object-cover"/>
     {% else %}
     <div class="size-20 sm:size-24 rounded-full bg-gradient-to-tr from-primary to-muted"></div>
     {% endif %}
