@@ -2,12 +2,12 @@
 module.exports = {
   darkMode: 'class',
   content: [
-    './**/*.{html,md,markdown,liquid}',
     './_includes/**/*.{html,liquid}',
     './_layouts/**/*.{html,liquid}',
     './_posts/**/*.{md,markdown}',
     './blog/**/*.{html,md}',
     './projects/**/*.{html,md}',
+    './*.{html,md,liquid}',
   ],
   theme: {
     extend: {
