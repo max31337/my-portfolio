@@ -1,4 +1,6 @@
 {% seo %}
 <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "/feed.xml" | relative_url }}" />
+<!-- Favicons: ensure project subpath is respected -->
 <link rel="icon" href="{{ '/favicon.svg' | relative_url }}" type="image/svg+xml">
-<link rel="alternate icon" href="{{ '/favicon.ico' | relative_url }}">
+<link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any" type="image/x-icon">
+<link rel="shortcut icon" href="{{ '/favicon.ico' | relative_url }}" type="image/x-icon">
