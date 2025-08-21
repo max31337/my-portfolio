@@ -1,10 +1,10 @@
 # Site settings
 title: Max Navarro — Portfolio
 description: Personal portfolio and blog. Projects, writings, and contact.
-# Set your production URL (e.g., https://max31337.github.io or your custom domain)
-url: ""
-# If this is a project site (e.g., username.github.io/my-portfolio), set baseurl to "/my-portfolio"
-baseurl: ""
+# Production URL for GitHub Pages user/org site
+url: "https://max31337.github.io"
+# Project site base path
+baseurl: "/my-portfolio"
 
 # Build settings
 markdown: kramdown
