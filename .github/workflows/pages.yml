@@ -22,6 +22,20 @@ jobs:
         with:
           enablement: true
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Node dependencies
+        run: |
+          npm ci || npm i
+
+      - name: Build CSS with Tailwind
+        continue-on-error: true
+        run: |
+          npm run build:css
+
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:

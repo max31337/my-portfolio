@@ -52,8 +52,37 @@
         }
       }
     </script>
-    <!-- Tailwind CSS via CDN with Typography plugin for prose styles -->
-    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <!-- Tailwind CSS: use compiled CSS in production; CDN fallback for local preview -->
+    {% if jekyll.environment == 'production' %}
+      <link id="tw-css" rel="stylesheet" href="{{ '/assets/tailwind.css' | relative_url }}">
+      <script>
+        // If compiled CSS fails to load or Tailwind classes aren't applied, fall back to CDN
+        (function(){
+          function loadCDN(){
+            if (window.__twCdnLoaded) return; window.__twCdnLoaded = true;
+            var s = document.createElement('script');
+            s.src = 'https://cdn.tailwindcss.com?plugins=typography';
+            document.head.appendChild(s);
+          }
+          var link = document.getElementById('tw-css');
+          if (link) link.onerror = loadCDN;
+          // After load, verify a known Tailwind class works (hidden => display:none)
+          window.addEventListener('load', function(){
+            setTimeout(function(){
+              if (window.__twCdnLoaded) return;
+              var probe = document.createElement('div');
+              probe.className = 'hidden';
+              document.body.appendChild(probe);
+              var ok = getComputedStyle(probe).display === 'none';
+              document.body.removeChild(probe);
+              if (!ok) loadCDN();
+            }, 600);
+          });
+        })();
+      </script>
+    {% else %}
+      <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    {% endif %}
     <style>
       :root {
         --radius: 0.5rem;
