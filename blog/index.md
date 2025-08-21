@@ -27,9 +27,9 @@ title: Blog
             </div>
           </div>
           {% if post.tags %}
-          <div class="mt-2 flex flex-wrap gap-1 text-[11px]">
+          <div class="mt-2 flex flex-wrap gap-1 text-xs">
             {% for tag in post.tags %}
-              <span class="rounded-full border border-border px-2 py-0.5">#{{ tag }}</span>
+              <span class="rounded-full border border-border/70 px-2 py-0.5 bg-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100">#{{ tag }}</span>
             {% endfor %}
           </div>
           {% endif %}
