@@ -1,8 +1,0 @@
----
-layout: null
-permalink: /feed.xml
----
-{% feed_meta %}
-{% for post in site.posts %}
-  {% capture content %}{{ post.content | xml_escape }}{% endcapture %}
-{% endfor %}
