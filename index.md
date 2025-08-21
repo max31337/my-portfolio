@@ -54,7 +54,7 @@ title: Home
               WIP
             </span>
           </div>
-          <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI backend (DDD, JWT) and Next.js + TypeScript + shadcn/ui frontend.</p>
+          <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI (DDD, JWT) with REST APIs and WebSockets for SLA; Next.js + TypeScript + shadcn/ui frontend.</p>
           <div class="mt-auto flex gap-3 text-xs">
             <a href="{{ '/projects/salesoptimizer/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Case study</a>
             <a href="https://github.com/max31337/salesoptimizer" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Source</a>

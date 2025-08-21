@@ -38,7 +38,7 @@ title: Projects
           </span>
         </div>
       </a>
-      <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI backend (DDD, JWT) and Next.js + shadcn/ui frontend.</p>
+  <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI (DDD, JWT) with REST APIs and WebSockets for SLA; Next.js + shadcn/ui frontend.</p>
       <div class="mt-3 flex gap-3 text-xs">
         <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary {% if nil %}pointer-events-none opacity-50{% endif %}" href="#">Demo</a>
         <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/salesoptimizer" target="_blank" rel="noopener">Source</a>

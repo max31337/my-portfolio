@@ -1,7 +1,7 @@
 ---
 layout: default
 title: SalesOptimizer (WIP)
-description: CRM with task management and predictive analytics — FastAPI backend (DDD, modular, JWT) and Next.js + TypeScript + shadcn/ui frontend.
+description: CRM with task management and predictive analytics — FastAPI backend (DDD, modular, JWT) exposing REST APIs and WebSockets for SLA monitoring; Next.js + TypeScript + shadcn/ui frontend.
 hero:
   image: /assets/projects/salesoptimizer/superadmin-overview.png
 links:
@@ -24,6 +24,8 @@ status: WIP
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">FastAPI</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">DDD + Modular</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">JWT Auth</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">REST APIs</span>
+  <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">WebSockets (SLA)</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">PostgreSQL</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Redis</span>
       <span class="rounded-full border border-border px-2 py-0.5 bg-secondary/40">Next.js (TypeScript)</span>
@@ -46,16 +48,25 @@ status: WIP
   <div class="grid gap-6 md:grid-cols-2">
     <article class="rounded-lg border border-border p-4">
       <h2 class="font-medium mb-2">Vision</h2>
-      <p class="text-sm text-muted-foreground">A multi-tenant CRM focused on productivity and insights: task management, pipeline, and predictive analytics. The backend follows DDD and modular patterns with JWT-based auth; the frontend uses Next.js + TypeScript with shadcn/ui and Zustand.</p>
+      <p class="text-sm text-muted-foreground">A multi-tenant CRM focused on productivity and insights: task management, pipeline, and predictive analytics. The backend follows DDD and modular patterns with JWT-based auth and exposes REST APIs plus WebSockets for real-time SLA monitoring (metrics, reports, alerts). The frontend uses Next.js + TypeScript with shadcn/ui and Zustand.</p>
     </article>
     <article class="rounded-lg border border-border p-4">
       <h2 class="font-medium mb-2">Stack</h2>
       <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
-        <li>Backend: FastAPI, SQLAlchemy, Alembic, Pydantic v2, Redis, psycopg/asyncpg</li>
+        <li>Backend: FastAPI (REST + WebSockets), SQLAlchemy, Alembic, Pydantic v2, Redis, psycopg/asyncpg</li>
         <li>Auth: JWT (pyjwt), passlib[bcrypt], cryptography; OAuth via Authlib</li>
         <li>Infra: dotenv, psutil, Jinja2 (templating), websockets</li>
         <li>Frontend: Next.js (TypeScript), shadcn/ui, Zustand</li>
         <li>Tests: pytest (+ asyncio, cov, mock), factory-boy, faker</li>
+      </ul>
+    </article>
+    <article class="rounded-lg border border-border p-4">
+      <h2 class="font-medium mb-2">Current status</h2>
+      <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
+        <li>Authentication is implemented (JWT) and working.</li>
+        <li>Self-serve tenant onboarding with free trial is live.</li>
+        <li>SLA module is fully functional.</li>
+        <li>Real-time SLA metrics, reports, and alerts delivered via WebSockets.</li>
       </ul>
     </article>
   </div>
