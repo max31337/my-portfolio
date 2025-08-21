@@ -6,16 +6,30 @@
       {% endif %}
       <span class="truncate max-w-[50vw] sm:max-w-none text-sm sm:text-base">{{ site.title }}</span>
     </a>
-    <nav class="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-foreground">
-      <a class="hover:text-foreground" href="{{ '/' | relative_url }}">Home</a>
-      <a class="hover:text-foreground" href="{{ '/blog/' | relative_url }}">Blog</a>
-      <a class="hover:text-foreground" href="{{ '/projects/' | relative_url }}">Projects</a>
-      <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border px-2 py-1 text-[11px] sm:text-xs hover:bg-accent hover:text-accent-foreground">
-        <span id="theme-dark-label" class="inline">Dark</span>
-        <span id="theme-light-label" class="hidden">Light</span>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <button id="theme-toggle" aria-label="Toggle theme" class="rounded-md border border-border p-1.5 hover:bg-accent hover:text-accent-foreground">
+        <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364-1.414-1.414M7.05 7.05 5.636 5.636m12.728 0-1.414 1.414M7.05 16.95l-1.414 1.414"/><circle cx="12" cy="12" r="4"/></svg>
+        <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-    </nav>
+      <button id="menu-toggle" class="sm:hidden rounded-md border border-border p-1.5 hover:bg-accent" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav">
+        <svg id="icon-menu" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 18 18 6M6 6l12 12"/></svg>
+      </button>
+      <nav class="hidden sm:flex items-center gap-4 text-sm text-muted-foreground">
+        <a class="hover:text-foreground" href="{{ '/' | relative_url }}">Home</a>
+        <a class="hover:text-foreground" href="{{ '/blog/' | relative_url }}">Blog</a>
+        <a class="hover:text-foreground" href="{{ '/projects/' | relative_url }}">Projects</a>
+      </nav>
+    </div>
   </div>
+  <!-- Mobile nav -->
+  <nav id="mobile-nav" class="sm:hidden hidden border-t border-border/60 bg-background/95">
+    <div class="mx-auto max-w-3xl px-4 py-2 text-sm text-muted-foreground flex flex-col">
+      <a class="py-2 hover:text-foreground" href="{{ '/' | relative_url }}">Home</a>
+      <a class="py-2 hover:text-foreground" href="{{ '/blog/' | relative_url }}">Blog</a>
+      <a class="py-2 hover:text-foreground" href="{{ '/projects/' | relative_url }}">Projects</a>
+    </div>
+  </nav>
   <script>
     // Simple dark mode toggle with localStorage, set ASAP
     const root = document.documentElement;
@@ -26,18 +40,34 @@
       if (initial === 'dark') root.classList.add('dark');
       root.dataset.theme = initial;
     })();
-    const btn = document.getElementById('theme-toggle');
-    const updateLabels = () => {
+    // Theme toggle icons
+    const themeBtn = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    const updateThemeIcons = () => {
       const isDark = root.classList.contains('dark');
       root.dataset.theme = isDark ? 'dark' : 'light';
-  document.getElementById('theme-dark-label').classList.toggle('hidden', isDark);
-  document.getElementById('theme-light-label').classList.toggle('hidden', !isDark);
+      iconSun?.classList.toggle('hidden', !isDark);
+      iconMoon?.classList.toggle('hidden', isDark);
     };
-    updateLabels();
-    btn?.addEventListener('click', () => {
+    updateThemeIcons();
+    themeBtn?.addEventListener('click', () => {
       root.classList.toggle('dark');
       localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
-      updateLabels();
+      updateThemeIcons();
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden', isOpen);
+      iconMenu.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
     });
   </script>
 </header>
