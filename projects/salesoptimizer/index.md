@@ -91,6 +91,10 @@ status: WIP
         <img class="w-full" src="{{ '/assets/projects/salesoptimizer/security-settings.png' | relative_url }}" alt="Security settings" />
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Security settings</figcaption>
       </figure>
+      <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
+        <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sample-dark-mode.png' | relative_url }}" alt="Dark mode sample" />
+        <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dark mode sample</figcaption>
+      </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sign-up-form.png' | relative_url }}" alt="Sign up form" />
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Sign up form</figcaption>
