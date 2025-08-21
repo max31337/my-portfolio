@@ -1,0 +1,52 @@
+# Site settings
+title: Max Navarro — Portfolio
+description: Personal portfolio and blog. Projects, writings, and contact.
+# Set your production URL (e.g., https://max31337.github.io or your custom domain)
+url: ""
+# If this is a project site (e.g., username.github.io/my-portfolio), set baseurl to "/my-portfolio"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Permalinks
+permalink: /blog/:title/
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+  - scope:
+      path: ""
+    values:
+      layout: default
+
+# Exclude
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - feed.xml
+
+# Author
+author:
+  name: Max Navarro
+  email: your@email.com
+  socials:
+    github: max31337
+    linkedin: your-linkedin-handle

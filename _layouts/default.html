@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+    {% seo %}
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ "/feed.xml" | relative_url }}" />
+
+  <!-- Tailwind CSS via CDN with Typography plugin for prose styles -->
+  <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script>
+      // Tailwind config with shadcn-inspired tokens
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              border: {
+                DEFAULT: 'hsl(240 5.9% 90%)',
+              },
+              input: 'hsl(240 5.9% 90%)',
+              ring: 'hsl(240 4.9% 83.9%)',
+              background: 'hsl(0 0% 100%)',
+              foreground: 'hsl(240 10% 3.9%)',
+              primary: {
+                DEFAULT: 'hsl(240 5.9% 10%)',
+                foreground: 'hsl(0 0% 98%)',
+              },
+              secondary: {
+                DEFAULT: 'hsl(240 4.8% 95.9%)',
+                foreground: 'hsl(240 5.9% 10%)',
+              },
+              muted: {
+                DEFAULT: 'hsl(240 4.8% 95.9%)',
+                foreground: 'hsl(240 3.8% 46.1%)',
+              },
+              accent: {
+                DEFAULT: 'hsl(240 4.8% 95.9%)',
+                foreground: 'hsl(240 5.9% 10%)',
+              },
+              card: {
+                DEFAULT: 'hsl(0 0% 100%)',
+                foreground: 'hsl(240 10% 3.9%)',
+              },
+            },
+            borderRadius: {
+              lg: '0.5rem',
+              md: 'calc(0.5rem - 2px)',
+              sm: 'calc(0.5rem - 4px)'
+            },
+          }
+        },
+        darkMode: 'class'
+      }
+    </script>
+    <style>
+      :root {
+        --radius: 0.5rem;
+      }
+      .dark {
+        color-scheme: dark;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-background text-foreground flex flex-col">
+    {% include header.html %}
+
+    <main class="flex-1">
+      <div class="mx-auto w-full max-w-3xl px-4 py-10">
+        {{ content }}
+      </div>
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>

@@ -1,0 +1,14 @@
+<footer class="border-t border-border/60 mt-10">
+  <div class="mx-auto max-w-3xl px-4 py-8 text-xs text-muted-foreground flex items-center justify-between">
+    <p>© {{ site.time | date: '%Y' }} {{ site.author.name }}</p>
+    <div class="flex items-center gap-3">
+      {% if site.author.socials.github %}
+      <a class="hover:text-foreground" href="https://github.com/{{ site.author.socials.github }}" target="_blank" rel="noopener">GitHub</a>
+      {% endif %}
+      {% if site.author.socials.linkedin %}
+      <a class="hover:text-foreground" href="https://www.linkedin.com/in/{{ site.author.socials.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+      {% endif %}
+      <a class="hover:text-foreground" href="{{ '/feed.xml' | relative_url }}">RSS</a>
+    </div>
+  </div>
+</footer>
