@@ -16,7 +16,7 @@ title: Home
       <div class="mt-3 flex flex-wrap gap-3 text-xs">
         <a href="{{ '/projects/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">View projects</a>
         <a href="{{ '/blog/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Read blog</a>
-        <a href="mailto:{{ site.author.email }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Contact</a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.author.email }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Contact</a>
       </div>
     </div>
   </div>
@@ -66,7 +66,7 @@ title: Home
         <p class="text-sm text-muted-foreground">Have a project in mind or a role to fill? I’m happy to chat.</p>
       </div>
       <div class="flex gap-3 text-xs">
-        <a href="mailto:{{ site.author.email }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Email me</a>
+  <a href="https://mail.google.com/mail/?view=cm&fs=1&to={{ site.author.email }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Email me</a>
         {% if site.author.socials.linkedin %}
         <a href="https://www.linkedin.com/in/{{ site.author.socials.linkedin }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">LinkedIn</a>
         {% endif %}
