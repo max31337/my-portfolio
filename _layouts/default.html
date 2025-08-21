@@ -88,25 +88,83 @@
         color: hsl(240 5.9% 10%) !important;
       }
       /* Inline code tokens (e.g., `deletedAt`) — ensure high contrast in light mode */
-      :root:not(.dark) .prose code {
+      :root:not(.dark) .prose :not(pre) > code {
         color: hsl(240 10% 3.9%) !important;
         background-color: hsl(240 4.8% 95.9%) !important; /* muted */
         border: 1px solid hsl(240 5.9% 90%) !important;
         border-radius: 0.25rem;
         padding: 0.15em 0.35em;
       }
-      :root:not(.dark) .prose a code {
+      :root:not(.dark) .prose a :not(pre) > code,
+      :root:not(.dark) .prose a code:not(pre code) {
         color: hsl(240 5.9% 10%) !important; /* match link foreground */
       }
-      :root:not(.dark) .prose code::before,
-      :root:not(.dark) .prose code::after {
+      :root:not(.dark) .prose :not(pre) > code::before,
+      :root:not(.dark) .prose :not(pre) > code::after {
         content: none !important; /* remove extra backticks from typography plugin */
       }
       /* Dark mode inline code remains readable */
-      .dark .prose code {
+      .dark .prose :not(pre) > code {
         color: hsl(0 0% 98%) !important;
         background-color: hsl(240 3.7% 15%) !important;
         border: 1px solid hsl(240 3.7% 20%) !important;
+      }
+
+      /* Code blocks (pre) — light mode */
+      :root:not(.dark) .prose pre {
+        background-color: hsl(240 4.8% 95.9%); /* muted */
+        border: 1px solid hsl(240 5.9% 90%);
+        color: hsl(240 10% 3.9%);
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        overflow: auto;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.04);
+        position: relative;
+      }
+      :root:not(.dark) .prose pre code {
+        background: transparent !important;
+        border: 0 !important;
+        padding: 0 !important;
+        color: inherit !important;
+      }
+      /* Code blocks — dark mode */
+      .dark .prose pre {
+        background-color: hsl(240 3.7% 15%);
+        border: 1px solid hsl(240 3.7% 20%);
+        color: hsl(0 0% 98%);
+        border-radius: 0.5rem;
+        padding: 1rem 1.25rem;
+        overflow: auto;
+        position: relative;
+      }
+      .dark .prose pre code {
+        background: transparent !important;
+        border: 0 !important;
+        padding: 0 !important;
+        color: inherit !important;
+      }
+
+      /* Copy button and language badge */
+      .code-copy-btn,
+      .code-lang-badge {
+        position: absolute;
+        top: 0.5rem;
+        line-height: 1;
+        border-radius: 0.375rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 11px;
+        border: 1px solid hsl(240 5.9% 90%);
+        background: rgba(255,255,255,0.8);
+        color: hsl(240 10% 3.9%);
+        backdrop-filter: saturate(180%) blur(4px);
+      }
+      .code-copy-btn { right: 0.5rem; }
+      .code-lang-badge { right: 4.2rem; }
+      .dark .code-copy-btn,
+      .dark .code-lang-badge {
+        border-color: hsl(240 3.7% 20%);
+        background: rgba(24,24,27,0.6);
+        color: hsl(0 0% 98%);
       }
     </style>
   </head>
@@ -121,4 +179,40 @@
 
     {% include footer.html %}
   </body>
+  <script>
+    // Enhance code blocks: add language badge and copy button
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('pre > code').forEach(code => {
+        const pre = code.parentElement;
+        if (!pre || pre.dataset.enhanced) return;
+        pre.dataset.enhanced = 'true';
+        // Language badge from class like language-js or language-bash
+        const cls = code.className || '';
+        const match = cls.match(/language-([a-z0-9+#-]+)/i);
+        const lang = match ? match[1].toUpperCase() : '';
+        if (lang) {
+          const badge = document.createElement('span');
+          badge.className = 'code-lang-badge';
+          badge.textContent = lang;
+          pre.appendChild(badge);
+        }
+        // Copy button
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'code-copy-btn';
+        btn.textContent = 'Copy';
+        btn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(code.innerText);
+            const prev = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(() => (btn.textContent = prev), 1200);
+          } catch (e) {
+            console.error('Copy failed', e);
+          }
+        });
+        pre.appendChild(btn);
+      });
+    });
+  </script>
 </html>
