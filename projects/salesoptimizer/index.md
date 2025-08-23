@@ -58,6 +58,7 @@ status: WIP
       <h2 class="font-medium mb-2">Stack</h2>
       <ul class="list-disc pl-5 text-sm space-y-1 text-muted-foreground">
         <li>Backend: FastAPI (REST + WebSockets), SQLAlchemy, Alembic, Pydantic v2, Redis, psycopg/asyncpg</li>
+        <li>API Docs: Swagger UI (FastAPI's built-in OpenAPI support) for API endpoint management</li>
         <li>Auth: JWT (pyjwt), passlib[bcrypt], cryptography; OAuth via Authlib</li>
         <li>Infra: dotenv, psutil, Jinja2 (templating), websockets</li>
         <li>Frontend: Next.js (TypeScript), shadcn/ui, Zustand</li>
