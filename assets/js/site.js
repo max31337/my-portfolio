@@ -1,5 +1,3 @@
-// Consolidated site scripts (deferred)
-// Theme toggle, mobile nav, code block enhancements, image modal
 document.addEventListener('DOMContentLoaded',function(){
   var root=document.documentElement;
   // Theme toggle

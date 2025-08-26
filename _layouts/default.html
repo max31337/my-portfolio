@@ -6,25 +6,8 @@
     <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   {% include head.html %}
 
-    <!-- Early theme init: set dark/light class before CSS loads -->
-    <script>
-      (function(){
-        try {
-          var root = document.documentElement;
-          var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var initial = stored || (prefersDark ? 'dark' : 'light');
-          if (initial === 'dark') root.classList.add('dark');
-          root.dataset.theme = initial;
-        } catch (e) {}
-      })();
-    </script>
-
-    <!-- Tailwind config (only darkMode here; colors come from CSS variables) -->
-    <script>
-      window.tailwind = window.tailwind || {};
-      tailwind.config = { darkMode: 'class' };
-    </script>
+  <script>(function(){try{var r=document.documentElement,t=localStorage.getItem('theme'),d=matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches,i=t||(d?'dark':'light');if(i==='dark')r.classList.add('dark');r.dataset.theme=i}catch(e){}})();</script>
+  <script>window.tailwind=window.tailwind||{};tailwind.config={darkMode:'class'};</script>
     <!-- Tailwind CSS: use compiled CSS in production; CDN fallback for local preview -->
     {% if jekyll.environment == 'production' %}
       <link id="tw-css" rel="stylesheet" href="{{ '/assets/tailwind.css' | relative_url }}">
