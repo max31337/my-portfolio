@@ -212,41 +212,10 @@
     </main>
 
     {% include footer.html %}
+    <div id="img-modal" style="display:none;position:fixed;z-index:50;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+      <button id="img-modal-close" aria-label="Close image" style="position:absolute;top:0;right:0;padding:2rem 2rem 1rem 1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;">&times;</button>
+      <img id="img-modal-img" src="" alt="Project screenshot" style="max-width:90vw;max-height:90vh;border-radius:0.5rem;box-shadow:0 4px 32px #0008;" />
+    </div>
   </body>
-  <script>
-    // Enhance code blocks: add language badge and copy button
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('pre > code').forEach(code => {
-        const pre = code.parentElement;
-        if (!pre || pre.dataset.enhanced) return;
-        pre.dataset.enhanced = 'true';
-        // Language badge from class like language-js or language-bash
-        const cls = code.className || '';
-        const match = cls.match(/language-([a-z0-9+#-]+)/i);
-        const lang = match ? match[1].toUpperCase() : '';
-        if (lang) {
-          const badge = document.createElement('span');
-          badge.className = 'code-lang-badge';
-          badge.textContent = lang;
-          pre.appendChild(badge);
-        }
-        // Copy button
-        const btn = document.createElement('button');
-        btn.type = 'button';
-        btn.className = 'code-copy-btn';
-        btn.textContent = 'Copy';
-        btn.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(code.innerText);
-            const prev = btn.textContent;
-            btn.textContent = 'Copied';
-            setTimeout(() => (btn.textContent = prev), 1200);
-          } catch (e) {
-            console.error('Copy failed', e);
-          }
-        });
-        pre.appendChild(btn);
-      });
-    });
-  </script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}" defer></script>
 </html>
