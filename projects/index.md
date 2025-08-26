@@ -47,7 +47,7 @@ title: Projects
     <!-- Feature .NET project first -->
     <article class="rounded-lg border border-border p-4 hover:bg-accent">
       <a class="block" href="{{ '/projects/patientmanagementsystem/' | relative_url }}">
-        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/sample-project/dashboard.png' | relative_url }}" alt="Patient Management System preview" />
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/patientmanagementsystem/dashboard.png' | relative_url }}" alt="Patient Management System preview" />
         <h2 class="font-medium">Patient Management System</h2>
       </a>
       <p class="text-sm text-muted-foreground">ASP.NET Core MVC + MSSQL with secure auth and REST API for supersystem integrations.</p>
