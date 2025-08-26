@@ -90,7 +90,7 @@ status: WIP
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" aria-label="View image">
           <picture>
             <source type="image/webp" srcset="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" />
-            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="Superadmin overview" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" alt="Superadmin overview" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
           </picture>
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Superadmin overview</figcaption>
