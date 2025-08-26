@@ -3,7 +3,7 @@ layout: default
 title: SalesOptimizer (WIP)
 description: CRM with task management and predictive analytics — FastAPI backend (DDD, modular, JWT) exposing REST APIs and WebSockets for SLA monitoring; Next.js + TypeScript + shadcn/ui frontend.
 hero:
-  image: /assets/projects/salesoptimizer/superadmin-overview.png
+  image: /assets/projects/salesoptimizer/superadmin-overview.webp
 links:
   repo: https://github.com/max31337/salesoptimizer
   live:
@@ -84,8 +84,8 @@ status: WIP
     <h2 class="font-medium">Screens (WIP)</h2>
     <div class="grid gap-4 md:grid-cols-2">
       <figure class="rounded-lg border border-border overflow-hidden">
-        <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="Superadmin overview" />
+        <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" aria-label="View image">
+          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" alt="Superadmin overview" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Superadmin overview</figcaption>
       </figure>

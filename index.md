@@ -45,7 +45,7 @@ title: Home
     </div>
     <article class="rounded-lg border border-border overflow-hidden">
       <div class="grid md:grid-cols-2">
-        <img src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="SalesOptimizer preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
+        <img src="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" alt="SalesOptimizer preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
         <div class="p-5 flex flex-col gap-3">
           <div class="flex items-center gap-2">
             <h3 class="font-medium">SalesOptimizer (WIP)</h3>
