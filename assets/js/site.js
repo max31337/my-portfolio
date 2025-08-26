@@ -24,8 +24,21 @@ document.addEventListener('DOMContentLoaded',function(){
   if(closeBtn)closeBtn.addEventListener('click',closeModal);
   if(modal)modal.addEventListener('click',function(e){if(e.target===modal)closeModal();});
   document.addEventListener('keydown',function(e){if(modal&&modal.style.display==='flex'&&(e.key==='Escape'||e.key==='Esc'))closeModal();});
-  // Service worker registration for caching static assets (improves repeat visits)
+  // Service worker registration (compute base path dynamically to avoid hardcoded Liquid tokens)
   if('serviceWorker' in navigator){
-    try{navigator.serviceWorker.register('{{ site.baseurl }}/sw.js');}catch(e){console.warn('SW register failed',e);}
+    try{
+      var scriptEl=document.querySelector('script[src*="/assets/js/site.js"]');
+      var base='';
+      if(scriptEl){
+        var src=scriptEl.getAttribute('src');
+        base=src.split('/assets/js/site.js')[0]; // e.g. /my-portfolio
+      }
+      if(!base){
+        var parts=location.pathname.split('/').filter(Boolean);
+        if(parts.length>0) base='/' + parts[0];
+      }
+      var swUrl=(base||'') + '/sw.js';
+      navigator.serviceWorker.register(swUrl).catch(function(e){console.warn('SW register failed',e);});
+    }catch(e){console.warn('SW register error',e);}
   }
 });
