@@ -53,46 +53,46 @@ links:
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens</h2>
-    <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 cv-auto">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/home.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/home.png' | relative_url }}" alt="Home" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/home.png' | relative_url }}" alt="Home" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Home</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/login.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/login.png' | relative_url }}" alt="Login" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/login.png' | relative_url }}" alt="Login" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Login</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/patientlist.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patientlist.png' | relative_url }}" alt="Patient list" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patientlist.png' | relative_url }}" alt="Patient list" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Patient list</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/patientdetails.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patientdetails.png' | relative_url }}" alt="Patient details" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patientdetails.png' | relative_url }}" alt="Patient details" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Patient details</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/patient-creation-form.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patient-creation-form.png' | relative_url }}" alt="Create patient" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patient-creation-form.png' | relative_url }}" alt="Create patient" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Create patient</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/patient-edit-form.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patient-edit-form.png' | relative_url }}" alt="Edit patient" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/patient-edit-form.png' | relative_url }}" alt="Edit patient" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Edit patient</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/patientmanagementsystem/dashboard.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/dashboard.png' | relative_url }}" alt="Dashboard" />
+          <img class="w-full" src="{{ '/assets/projects/patientmanagementsystem/dashboard.png' | relative_url }}" alt="Dashboard" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dashboard</figcaption>
       </figure>

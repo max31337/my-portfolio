@@ -64,46 +64,46 @@ links:
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens</h2>
-    <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 cv-auto">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" alt="Dashboard showing pending tasks and charts" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" alt="Dashboard showing pending tasks and charts" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dashboard — Pending tasks</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" alt="Dashboard showing completed tasks and charts" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" alt="Dashboard showing completed tasks and charts" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dashboard — Completed tasks</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" alt="Login page" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" alt="Login page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Login</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" alt="Registration page" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" alt="Registration page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Registration</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" alt="Task creation form" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" alt="Task creation form" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Create task</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" alt="Profile page" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" alt="Profile page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Profile</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" alt="Welcome page" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" alt="Welcome page" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Welcome page</figcaption>
       </figure>

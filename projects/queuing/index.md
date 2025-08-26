@@ -66,34 +66,34 @@ links:
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens</h2>
-    <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 cv-auto">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/queuing/queue-list.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/queuing/queue-list.png' | relative_url }}" alt="Queue list" />
+          <img class="w-full" src="{{ '/assets/projects/queuing/queue-list.png' | relative_url }}" alt="Queue list" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Queue list</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/queuing/counter.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/queuing/counter.png' | relative_url }}" alt="Counter display" />
+          <img class="w-full" src="{{ '/assets/projects/queuing/counter.png' | relative_url }}" alt="Counter display" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Counter display</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/queuing/manual-input-for-counter.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/queuing/manual-input-for-counter.png' | relative_url }}" alt="Manual input for counter" />
+          <img class="w-full" src="{{ '/assets/projects/queuing/manual-input-for-counter.png' | relative_url }}" alt="Manual input for counter" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Manual input for counter</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/queuing/archive-list.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/queuing/archive-list.png' | relative_url }}" alt="Archive list" />
+          <img class="w-full" src="{{ '/assets/projects/queuing/archive-list.png' | relative_url }}" alt="Archive list" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Archive list</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/queuing/analytics.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/queuing/analytics.png' | relative_url }}" alt="Analytics" />
+          <img class="w-full" src="{{ '/assets/projects/queuing/analytics.png' | relative_url }}" alt="Analytics" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Analytics</figcaption>
       </figure>

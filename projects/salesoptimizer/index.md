@@ -85,7 +85,7 @@ status: WIP
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens (WIP)</h2>
-    <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 cv-auto">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" aria-label="View image">
           <picture>
@@ -97,55 +97,55 @@ status: WIP
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-system-metrics.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-system-metrics.png' | relative_url }}" alt="System metrics" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-system-metrics.png' | relative_url }}" alt="System metrics" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">System metrics</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-SLA-reports.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-SLA-reports.png' | relative_url }}" alt="SLA reports" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-SLA-reports.png' | relative_url }}" alt="SLA reports" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">SLA reports</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/superadmin-system-alerts.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-system-alerts.png' | relative_url }}" alt="System alerts" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/superadmin-system-alerts.png' | relative_url }}" alt="System alerts" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">System alerts</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/profile.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/profile.png' | relative_url }}" alt="Profile" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/profile.png' | relative_url }}" alt="Profile" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Profile</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/profile-settings.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/profile-settings.png' | relative_url }}" alt="Profile settings" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/profile-settings.png' | relative_url }}" alt="Profile settings" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Profile settings</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/security-settings.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/security-settings.png' | relative_url }}" alt="Security settings" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/security-settings.png' | relative_url }}" alt="Security settings" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Security settings</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/sample-dark-mode.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sample-dark-mode.png' | relative_url }}" alt="Dark mode sample" loading="lazy" decoding="async" sizes="100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sample-dark-mode.png' | relative_url }}" alt="Dark mode sample" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dark mode sample</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/sign-up-form.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sign-up-form.png' | relative_url }}" alt="Sign up form" loading="lazy" decoding="async" sizes="(min-width:768px) 50vw, 100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sign-up-form.png' | relative_url }}" alt="Sign up form" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Sign up form</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/salesoptimizer/sample-tenant.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sample-tenant.png' | relative_url }}" alt="Sample tenant" loading="lazy" decoding="async" sizes="100vw" />
+            <img class="w-full" src="{{ '/assets/projects/salesoptimizer/sample-tenant.png' | relative_url }}" alt="Sample tenant" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Sample tenant</figcaption>
       </figure>

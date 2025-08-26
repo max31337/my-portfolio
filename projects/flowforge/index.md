@@ -62,28 +62,28 @@ status: WIP
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens (WIP)</h2>
-    <div class="grid gap-4 md:grid-cols-2">
+  <div class="grid gap-4 md:grid-cols-2 cv-auto">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/flowforge/superadmin-dashboard.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/flowforge/superadmin-dashboard.png' | relative_url }}" alt="Superadmin dashboard" />
+          <img class="w-full" src="{{ '/assets/projects/flowforge/superadmin-dashboard.png' | relative_url }}" alt="Superadmin dashboard" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Superadmin dashboard</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/flowforge/superadmin-tenant-management.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/flowforge/superadmin-tenant-management.png' | relative_url }}" alt="Tenant management" />
+          <img class="w-full" src="{{ '/assets/projects/flowforge/superadmin-tenant-management.png' | relative_url }}" alt="Tenant management" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Tenant management</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/flowforge/tenant dashboard.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/flowforge/tenant dashboard.png' | relative_url }}" alt="Tenant dashboard" />
+          <img class="w-full" src="{{ '/assets/projects/flowforge/tenant dashboard.png' | relative_url }}" alt="Tenant dashboard" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Tenant dashboard</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/flowforge/tenant-project-list.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/flowforge/tenant-project-list.png' | relative_url }}" alt="Tenant project list" />
+          <img class="w-full" src="{{ '/assets/projects/flowforge/tenant-project-list.png' | relative_url }}" alt="Tenant project list" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Tenant project list</figcaption>
       </figure>
