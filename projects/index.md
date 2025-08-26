@@ -29,7 +29,7 @@ title: Projects
     <!-- WIP: SalesOptimizer -->
     <article class="rounded-lg border border-border p-4 hover:bg-accent">
       <a class="block" href="{{ '/projects/salesoptimizer/' | relative_url }}">
-        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" alt="SalesOptimizer preview" />
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/salesoptimizer/superadmin-overview.png' | relative_url }}" alt="SalesOptimizer preview" />
         <div class="flex items-center gap-2">
           <h2 class="font-medium">SalesOptimizer (WIP)</h2>
           <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">

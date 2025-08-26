@@ -64,49 +64,81 @@ links:
 
   <div class="space-y-3">
     <h2 class="font-medium">Screens</h2>
-  <div class="grid gap-4 md:grid-cols-2 cv-auto">
+    <div class="grid gap-4 md:grid-cols-2">
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" alt="Dashboard showing pending tasks and charts" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-pending-task.png' | relative_url }}" alt="Dashboard showing pending tasks and charts" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dashboard — Pending tasks</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" alt="Dashboard showing completed tasks and charts" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/dashboard-with-completed-task.png' | relative_url }}" alt="Dashboard showing completed tasks and charts" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Dashboard — Completed tasks</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" alt="Login page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/login-page.png' | relative_url }}" alt="Login page" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Login</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" alt="Registration page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/registration-page.png' | relative_url }}" alt="Registration page" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Registration</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" alt="Task creation form" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/task-creation-form.png' | relative_url }}" alt="Task creation form" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Create task</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" alt="Profile page" loading="lazy" decoding="async" fetchpriority="low" sizes="(min-width:768px) 50vw, 100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/profile-page.png' | relative_url }}" alt="Profile page" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Profile</figcaption>
       </figure>
       <figure class="rounded-lg border border-border overflow-hidden md:col-span-2">
         <button type="button" class="project-img-btn" data-img="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" aria-label="View image">
-          <img class="w-full" src="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" alt="Welcome page" loading="lazy" decoding="async" fetchpriority="low" sizes="100vw" />
+          <img class="w-full" src="{{ '/assets/projects/todo-app/welcome-page.png' | relative_url }}" alt="Welcome page" />
         </button>
         <figcaption class="px-4 py-2 text-xs text-muted-foreground border-t border-border">Welcome page</figcaption>
       </figure>
+<!-- Modal for image pop-up -->
+<div id="img-modal" style="display:none;position:fixed;z-index:50;inset:0;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;">
+  <button id="img-modal-close" aria-label="Close image" style="position:absolute;top:0;right:0;padding:2rem 2rem 1rem 1rem;background:none;border:none;color:#fff;font-size:2rem;cursor:pointer;">&times;</button>
+  <img id="img-modal-img" src="" alt="Project screenshot" style="max-width:90vw;max-height:90vh;border-radius:0.5rem;box-shadow:0 4px 32px #0008;" />
+</div>
+<script>
+  // Modal logic for all .project-img-btn
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('img-modal');
+    const modalImg = document.getElementById('img-modal-img');
+    const closeBtn = document.getElementById('img-modal-close');
+    document.querySelectorAll('.project-img-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        modalImg.src = btn.getAttribute('data-img');
+        modal.style.display = 'flex';
+        modal.focus();
+      });
+    });
+    function closeModal() {
+      modal.style.display = 'none';
+      modalImg.src = '';
+    }
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (modal.style.display === 'flex' && (e.key === 'Escape' || e.key === 'Esc')) closeModal();
+    });
+  });
+</script>
     </div>
   </div>
 </section>

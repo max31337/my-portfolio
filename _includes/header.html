@@ -32,5 +32,44 @@
   <a class="py-2 hover:text-foreground" href="{{ '/resume/' | relative_url }}">Resume</a>
     </div>
   </nav>
-  <!-- Scripts consolidated into assets/js/site.js -->
+  <script>
+    // Simple dark mode toggle with localStorage, set ASAP
+    const root = document.documentElement;
+    (() => {
+      const stored = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const initial = stored || (prefersDark ? 'dark' : 'light');
+      if (initial === 'dark') root.classList.add('dark');
+      root.dataset.theme = initial;
+    })();
+    // Theme toggle icons
+    const themeBtn = document.getElementById('theme-toggle');
+    const iconSun = document.getElementById('icon-sun');
+    const iconMoon = document.getElementById('icon-moon');
+    const updateThemeIcons = () => {
+      const isDark = root.classList.contains('dark');
+      root.dataset.theme = isDark ? 'dark' : 'light';
+      iconSun?.classList.toggle('hidden', !isDark);
+      iconMoon?.classList.toggle('hidden', isDark);
+    };
+    updateThemeIcons();
+    themeBtn?.addEventListener('click', () => {
+      root.classList.toggle('dark');
+      localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+      updateThemeIcons();
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-toggle');
+    const mobileNav = document.getElementById('mobile-nav');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+    menuBtn?.addEventListener('click', () => {
+      const isOpen = !mobileNav.classList.contains('hidden');
+      mobileNav.classList.toggle('hidden', isOpen);
+      iconMenu.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  </script>
 </header>
