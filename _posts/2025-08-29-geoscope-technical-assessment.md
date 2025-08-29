@@ -7,6 +7,8 @@ tags: [nextjs, typescript, security, architecture, redis, leaflet]
 
 In an **internship technical assessment** I was tasked with building a simple IP lookup tool. I treated the 5‑day window as an opportunity to demonstrate end‑to‑end product thinking: user experience, infrastructure, security posture, and a clear roadmap. The result is **GeoScope**—a unified IP geolocation dashboard combining a Next.js 14 App Router frontend with an Express API in a single Vercel deployment.
 
+> Note: I completed and submitted this assessment even though I will likely decline the internship (no feasible remote option and the office location is impractical for commute). I still treated the brief professionally to demonstrate how I approach product delivery under tight time constraints.
+
 ## Scope & Time Constraints
 - Time available: **5 days** (design, implementation, polish, documentation)
 - Goal baseline: IP geolocation lookup + map
@@ -28,25 +30,49 @@ Key decisions:
 - **Security defaults**: JWT in HttpOnly + SameSite=Strict cookie (Secure in prod), no token in localStorage.
 
 ## Delivered Features (Within 5 Days)
-| Area | Delivered |
-|------|-----------|
-| Lookup | IP geolocation (ip-api.com) with normalized fields |
-| Guest Mode | Read‑only lookups; no persistence |
-| Auth Mode | Persistent, searchable history (Redis list + item keys) |
-| Bulk Actions | Multi‑select + pipelined Redis deletion |
-| Map | Dynamic Leaflet component positioned to current IP result |
-| Theme | Dark/light toggle, flicker‑free load |
-| Errors | Invalid IP modal + graceful fallbacks |
-| Health | `/api/health` + `/api/healthz` (uptime, version) |
+<div class="grid gap-4 sm:grid-cols-2">
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Lookup</h4>
+    <p class="text-sm">IP geolocation (ip-api.com) with normalized fields</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Guest Mode</h4>
+    <p class="text-sm">Read‑only lookups; no persistence</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Auth Mode</h4>
+    <p class="text-sm">Persistent, searchable history (Redis list + item keys)</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Bulk Actions</h4>
+    <p class="text-sm">Multi‑select + pipelined Redis deletion</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Map</h4>
+    <p class="text-sm">Dynamic Leaflet component positioned to current IP result</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Theme</h4>
+    <p class="text-sm">Dark/light toggle, flicker‑free load</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Errors</h4>
+    <p class="text-sm">Invalid IP modal + graceful fallbacks</p>
+  </div>
+  <div class="rounded-md border border-border p-3 bg-secondary/30">
+    <h4 class="text-[11px] font-semibold tracking-wide text-muted-foreground uppercase">Health</h4>
+    <p class="text-sm"><code>/api/health</code> + <code>/api/healthz</code> (uptime, version)</p>
+  </div>
+</div>
 
 ## Implementation Highlights
-| Challenge | Approach |
-|-----------|----------|
-| Dev vs Prod Data | Factory selects JSON or Redis store |
-| CORS Across Envs | Comma‑separated origin allow‑list parser |
-| Hydration Mismatch | Dynamic import + suspense fallback |
-| Fast Bulk Deletes | Redis pipeline commands |
-| Perceived Auth Latency | Optimistic UI flag + background cookie validation |
+<ul class="space-y-2 text-sm">
+  <li><span class="font-medium">Dev vs Prod Data:</span> Factory selects JSON or Redis store.</li>
+  <li><span class="font-medium">CORS Across Envs:</span> Comma‑separated origin allow‑list parser.</li>
+  <li><span class="font-medium">Hydration Mismatch:</span> Dynamic import + suspense fallback.</li>
+  <li><span class="font-medium">Fast Bulk Deletes:</span> Redis pipeline commands.</li>
+  <li><span class="font-medium">Perceived Auth Latency:</span> Optimistic UI flag + background cookie validation.</li>
+</ul>
 
 ## Security Posture
 **Current Protections:** HttpOnly + SameSite=Strict auth cookie (Secure in production), helmet headers (CSP in production), CORS allow‑list, no JWT in client storage, guest mode isolation.
