@@ -8,6 +8,24 @@ title: Projects
   <p class="text-muted-foreground">Primarily C#/.NET (ASP.NET Core). Also Python FastAPI and some PHP. Some services are containerized with Docker; trial deployments tested on Railway using Docker images.</p>
   </header>
   <div class="grid gap-4 sm:grid-cols-2">
+    <!-- New: GeoScope -->
+    <article class="rounded-lg border border-border p-4 hover:bg-accent">
+      <a class="block" href="{{ '/projects/geoscope/' | relative_url }}">
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/geoscope/dashboard.png' | relative_url }}" alt="GeoScope preview" />
+        <div class="flex items-center gap-2">
+          <h2 class="font-medium">GeoScope</h2>
+          <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+            <span class="size-1.5 rounded-full bg-emerald-500"></span>
+            Live
+          </span>
+        </div>
+      </a>
+      <p class="text-sm text-muted-foreground">IP geolocation dashboard (Next.js + Express) with guest mode, Redis-backed history, map, and secure cookie auth.</p>
+      <div class="mt-3 flex gap-3 text-xs">
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://test-react-program.vercel.app" target="_blank" rel="noopener">Demo</a>
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/test-react-program" target="_blank" rel="noopener">Source</a>
+      </div>
+    </article>
     <!-- WIP: FlowForge (TALL) -->
     <article class="rounded-lg border border-border p-4 hover:bg-accent">
       <a class="block" href="{{ '/projects/flowforge/' | relative_url }}">
