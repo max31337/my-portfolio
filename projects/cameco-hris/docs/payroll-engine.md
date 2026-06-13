@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Payroll & Compliance Engine - CAMECO HRIS
-description: Snapshot isolation mechanics, statutory computation algorithms, and rules-based processing state machine.
+description: Deterministic payroll computation engine using immutable snapshot tables for audit-safe recalculation.
 ---
 
 <section class="space-y-10">
@@ -13,7 +13,7 @@ description: Snapshot isolation mechanics, statutory computation algorithms, and
         Payroll & Compliance Engine
       </h1>
       <p class="text-muted-foreground max-w-2xl">
-        Snapshot isolation and deterministic payroll computation engine built for regulatory-grade auditability.
+        Deterministic payroll computation engine using immutable snapshot tables and rule-based evaluation for audit-safe recalculation.
       </p>
     </div>
   </header>
@@ -26,13 +26,11 @@ description: Snapshot isolation mechanics, statutory computation algorithms, and
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      Traditional payroll systems compute salaries against live relational data.
-      Any mutation during processing invalidates audit integrity.
+      Traditional payroll systems compute salaries directly from live relational data. Any mutation during processing can change outputs mid-calculation, resulting in non-reproducible financial results.
     </p>
 
     <p class="text-sm text-muted-foreground">
-      This creates a critical failure mode: non-reproducible financial computation.
-      Payroll results vary depending on when the query is executed.
+      This creates a critical failure mode: payroll results that vary depending on when computation is executed, making audit reconciliation unreliable.
     </p>
 
   </section>
@@ -41,11 +39,11 @@ description: Snapshot isolation mechanics, statutory computation algorithms, and
   <section class="rounded-xl border bg-card p-8 space-y-6">
 
     <h2 class="text-lg font-semibold text-foreground">
-      2. Snapshot Isolation State Machine
+      2. Deterministic Payroll State Machine (Snapshot-Based Execution)
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      Payroll execution is treated as a deterministic state machine over immutable snapshots.
+      Payroll execution is modeled as a deterministic state machine operating over immutable snapshot tables generated at a fixed cutoff timestamp.
     </p>
 
     <!-- STATE MACHINE DIAGRAM -->
@@ -58,19 +56,19 @@ description: Snapshot isolation mechanics, statutory computation algorithms, and
             DRAFT
           </div>
 
-          <div class="text-muted-foreground">↓ create snapshot</div>
+          <div class="text-muted-foreground">↓ create snapshot (cutoff timestamp locked)</div>
 
           <div class="rounded-lg border bg-muted px-4 py-2">
             LOCKED
           </div>
 
-          <div class="text-muted-foreground">↓ run rules engine</div>
+          <div class="text-muted-foreground">↓ execute rules engine</div>
 
           <div class="rounded-lg border bg-muted px-4 py-2">
             CALCULATING
           </div>
 
-          <div class="text-muted-foreground">↓ approval</div>
+          <div class="text-muted-foreground">↓ finalize payroll batch</div>
 
           <div class="rounded-lg border bg-muted px-4 py-2">
             FINALIZED
@@ -91,21 +89,23 @@ description: Snapshot isolation mechanics, statutory computation algorithms, and
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      Once locked, payroll executes a full materialization of all dependent state into immutable snapshot tables.
+      Once locked, payroll execution materializes all required state into immutable snapshot tables using a fixed cutoff timestamp to ensure deterministic recomputation.
     </p>
 
     <div class="not-prose rounded-lg border bg-muted p-4 overflow-x-auto">
-<pre class="text-xs font-mono text-foreground">-- Snapshot employees
+<pre class="text-xs font-mono text-foreground">-- Snapshot employees at cutoff timestamp
 INSERT INTO payroll_snapshot_employees (period_id, employee_id, basic_salary, tax_status, sss_exempted)
 SELECT 12, id, basic_salary, tax_status, sss_exempted
 FROM employees
-WHERE is_active = TRUE;
+WHERE is_active = TRUE
+AND created_at <= :snapshot_cutoff_at;
 
--- Snapshot timecards
+-- Snapshot timecards at cutoff timestamp
 INSERT INTO payroll_snapshot_timecards (period_id, employee_id, date, raw_minutes_worked, tardy_minutes)
 SELECT 12, employee_id, date, minutes_worked, tardy_minutes
 FROM compiled_timecards
-WHERE date BETWEEN '2025-11-01' AND '2025-11-15';</pre>
+WHERE date BETWEEN '2025-11-01' AND '2025-11-15'
+AND created_at <= :snapshot_cutoff_at;</pre>
     </div>
 
   </section>
@@ -118,7 +118,7 @@ WHERE date BETWEEN '2025-11-01' AND '2025-11-15';</pre>
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      Payroll computation is deterministic but policy-heavy, requiring layered rule evaluation.
+      Payroll computation is deterministic but rule-heavy, requiring a configurable rules engine based on statutory labor classifications and organizational policies.
     </p>
 
     <!-- RULE CARDS -->
@@ -126,22 +126,22 @@ WHERE date BETWEEN '2025-11-01' AND '2025-11-15';</pre>
 
       <div class="rounded-lg border bg-muted p-4">
         <div class="font-semibold">Overtime</div>
-        <div class="text-sm text-muted-foreground">1.25x after 8 hours</div>
+        <div class="text-sm text-muted-foreground">Base multiplier: 1.25x after 8 hours (configurable rule)</div>
       </div>
 
       <div class="rounded-lg border bg-muted p-4">
         <div class="font-semibold">Night Differential</div>
-        <div class="text-sm text-muted-foreground">+10% (10PM–6AM)</div>
+        <div class="text-sm text-muted-foreground">+10% (10PM–6AM window)</div>
       </div>
 
       <div class="rounded-lg border bg-muted p-4">
         <div class="font-semibold">Holiday Pay</div>
-        <div class="text-sm text-muted-foreground">1.3x–2.0x multiplier</div>
+        <div class="text-sm text-muted-foreground">Rule-based multiplier depending on statutory classification</div>
       </div>
 
       <div class="rounded-lg border bg-muted p-4">
         <div class="font-semibold">Statutory Deductions</div>
-        <div class="text-sm text-muted-foreground">SSS / PhilHealth / Pag-IBIG</div>
+        <div class="text-sm text-muted-foreground">SSS / PhilHealth / Pag-IBIG (government-defined rates)</div>
       </div>
 
     </div>
@@ -155,8 +155,13 @@ WHERE date BETWEEN '2025-11-01' AND '2025-11-15';</pre>
       5. Payroll Line Materialization
     </h2>
 
+    <p class="text-sm text-muted-foreground">
+      Payroll results are materialized as immutable ledger entries tied to a unique payroll batch to ensure idempotent execution.
+    </p>
+
     <div class="not-prose rounded-lg border bg-muted p-4 overflow-x-auto">
-<pre class="text-xs font-mono text-foreground">INSERT INTO payslip_lines (payslip_id, code, description, amount, type) VALUES
+<pre class="text-xs font-mono text-foreground">-- Idempotent payroll batch output (protected by batch_id in application layer)
+INSERT INTO payslip_lines (payslip_id, code, description, amount, type) VALUES
 (2048, 'BASIC', 'Locked Basic Salary', 15000.00, 'EARNING'),
 (2048, 'OT_REG', 'Regular Overtime', 625.50, 'EARNING'),
 (2048, 'DED_TARDY', 'Tardiness', -120.00, 'DEDUCTION'),
