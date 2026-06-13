@@ -10,14 +10,12 @@ description: Architectural specifications, cryptographic ledger design, and engi
   <header class="space-y-4">
 
     <!-- BACK BUTTON -->
-    <div>
-      <a
-        href="http://localhost:4000/my-portfolio/projects/cameco-hris/"
-        class="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-4 py-2 text-sm font-medium text-foreground hover:bg-accent transition"
-      >
-        ← Back to Project
-      </a>
-    </div>
+    <a
+      href="{{ site.baseurl }}/projects/cameco-hris/"
+      class="inline-flex items-center gap-2 rounded-md border border-border bg-muted px-4 py-2 text-sm font-medium text-foreground hover:bg-accent transition"
+    >
+      ← Back to Project
+    </a>
 
     <div>
       <h1 class="text-3xl font-semibold tracking-tight">
@@ -35,14 +33,18 @@ description: Architectural specifications, cryptographic ledger design, and engi
     <article class="rounded-lg border border-border p-4">
       <h2 class="font-medium mb-3">Specification Structure</h2>
       <p class="text-sm text-muted-foreground mb-4">
-        These system specifications describe how CAMECO HRIS handles security constraints, high-throughput IoT/RFID card taps, and Philippine labor law compliance through robust database and application patterns.
+        These system specifications describe how CAMECO HRIS handles security constraints,
+        high-throughput RFID card taps, and Philippine labor law compliance through robust
+        Laravel application and database patterns.
       </p>
     </article>
 
     <article class="rounded-lg border border-border p-4">
       <h2 class="font-medium mb-3">My Contributions as Lead Programmer</h2>
       <p class="text-sm text-muted-foreground">
-        I was responsible for translating complex organizational requirements into concrete technical solutions: event ledger design, MQTT ingestion pipeline, and payroll state machine implementation.
+        I was responsible for translating complex organizational requirements into concrete
+        technical solutions: event ledger design, RFID ingestion pipeline, and payroll
+        state machine implementation.
       </p>
     </article>
 
@@ -71,7 +73,7 @@ description: Architectural specifications, cryptographic ledger design, and engi
       <a href="./rfid-integration/" class="rounded-lg border border-border p-4 hover:bg-accent block">
         <h3 class="font-medium text-sm">3. RFID Ingestion Event Bus</h3>
         <p class="text-xs text-muted-foreground mt-1">
-          MQTT-based ingestion pipeline with edge caching and SSE updates.
+          Asynchronous ingestion pipeline with Laravel Queues, edge buffering, and SSE dashboard updates.
         </p>
       </a>
 
