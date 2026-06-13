@@ -118,7 +118,6 @@ REVOKE UPDATE, DELETE ON rfid_ledger FROM hr_staff_role, payroll_officer_role;</
     <p>
       <strong>Calculation Playback:</strong> When the payroll engine compiles timesheets, it pulls all events chronologically for an employee. It maintains a state machine. When it encounters a <code>CORRECTION</code> event, the engine overrides the record of the referenced sequence ID in-memory. The audit history remains perfectly preserved: the developer can inspect both the original physical gate tap time and the manual manager correction side-by-side.
     </p>
-  </div>
 
   <div class="mt-8 pt-6 border-t border-border flex justify-between text-xs text-muted-foreground">
     <span>Last Updated: November 2025</span>
