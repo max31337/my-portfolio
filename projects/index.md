@@ -98,5 +98,22 @@ title: Projects
         <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/ToDo-App" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
+    <!-- Documentation: CAMECO HRIS -->
+    <article class="rounded-lg border border-border p-4 hover:bg-accent">
+      <a class="block" href="{{ '/projects/cameco-hris/' | relative_url }}">
+        <img class="rounded-md border border-border mb-3" src="{{ '/assets/projects/cameco-hris/landing-page.png' | relative_url }}" alt="CAMECO HRIS preview" />
+        <div class="flex items-center gap-2">
+          <h2 class="font-medium">CAMECO HRIS</h2>
+          <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+            <span class="size-1.5 rounded-full bg-blue-500"></span>
+            Architecture Spec
+          </span>
+        </div>
+      </a>
+      <p class="text-sm text-muted-foreground">Capstone Project (Lead Programmer). An on-premise enterprise HRIS featuring a cryptographic event-ledger database for tamper-proof timekeeping, a high-throughput RFID event bus, and a robust Philippine compliance payroll engine.</p>
+      <div class="mt-3 flex gap-3 text-xs">
+        <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="{{ '/projects/cameco-hris/docs/' | relative_url }}">Technical Spec</a>
+      </div>
+    </article>
   </div>
 </section>

@@ -45,19 +45,19 @@ title: Home
     </div>
     <article class="rounded-lg border border-border overflow-hidden">
       <div class="grid md:grid-cols-2">
-        <img src="{{ '/assets/projects/salesoptimizer/superadmin-overview.webp' | relative_url }}" alt="SalesOptimizer preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
+        <img src="{{ '/assets/projects/cameco-hris/landing-page.png' | relative_url }}" alt="Cameco HRIS preview" class="h-full w-full object-cover border-b border-border md:border-b-0 md:border-r"/>
         <div class="p-5 flex flex-col gap-3">
           <div class="flex items-center gap-2">
-            <h3 class="font-medium">SalesOptimizer (WIP)</h3>
+            <h3 class="font-medium">Cameco HRIS</h3>
             <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
               <span class="size-1.5 rounded-full bg-yellow-500"></span>
-              WIP
+              Capstone Project
             </span>
           </div>
-          <p class="text-sm text-muted-foreground">CRM with task management and predictive analytics — FastAPI (DDD, JWT) with REST APIs and WebSockets for SLA; Next.js + TypeScript + shadcn/ui frontend.</p>
+          <p class="text-sm text-muted-foreground">Enterprise Human Resource Information System featuring RFID-based attendance tracking, cryptographic event ledger, MQTT ingestion pipeline, and deterministic payroll computation engine with Philippine labor law compliance.</p>
           <div class="mt-auto flex gap-3 text-xs">
-            <a href="{{ '/projects/salesoptimizer/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Case study</a>
-            <a href="https://github.com/max31337/salesoptimizer" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Source</a>
+            <a href="{{ '/projects/cameco-hris/' | relative_url }}" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Case study</a>
+            <a href="{{ '/projects/cameco-hris/docs/' | relative_url }}" target="_blank" rel="noopener" class="rounded-md border border-border px-3 py-1 hover:bg-secondary">Technical Specs</a>
           </div>
         </div>
       </div>
