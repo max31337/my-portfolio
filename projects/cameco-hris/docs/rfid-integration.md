@@ -1,7 +1,7 @@
 ---
 layout: default
 title: RFID Ingestion Event Bus - CAMECO HRIS
-description: Asynchronous IoT card tap ingestion, edge caching protocols, and real-time dashboard state synchronization.
+description: Asynchronous RFID ingestion pipeline using Laravel Queues, edge buffering, and real-time SSE dashboard synchronization.
 ---
 
 <section class="space-y-10">
@@ -12,7 +12,7 @@ description: Asynchronous IoT card tap ingestion, edge caching protocols, and re
         RFID Ingestion Event Bus
       </h1>
       <p class="text-muted-foreground max-w-2xl">
-        Architecting a high-throughput, offline-resilient IoT data ingestion pipeline using MQTT and Server-Sent Events (SSE).
+        Architecting a high-throughput, offline-resilient IoT ingestion pipeline using Laravel Queues and Server-Sent Events (SSE).
       </p>
     </div>
   </header>
@@ -25,13 +25,13 @@ description: Asynchronous IoT card tap ingestion, edge caching protocols, and re
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      At a typical factory or enterprise site, shifts begin and end in short, synchronized windows.
-      Thousands of employees tap RFID cards within a 15-minute window.
+      At enterprise-scale deployments, shift transitions generate high-frequency RFID events within short time windows.
+      Thousands of employees may tap simultaneously within minutes.
     </p>
 
     <p class="text-sm text-muted-foreground">
-      A synchronous HTTP pipeline would collapse under load due to thread pool exhaustion and DB latency spikes,
-      freezing physical turnstiles and creating operational bottlenecks.
+      A synchronous HTTP-only pipeline would lead to request queue buildup, database contention, and delayed gate response times,
+      making the system unusable under peak load.
     </p>
 
     <div class="not-prose rounded-lg border bg-muted p-4 overflow-x-auto">
@@ -46,11 +46,12 @@ WHERE id = 4529;</pre>
   <section class="rounded-xl border bg-card p-8 space-y-6">
 
     <h2 class="text-lg font-semibold text-foreground">
-      2. Decoupled MQTT Messaging Architecture
+      2. Decoupled Event Processing Using Laravel Queue System
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      To eliminate synchronous bottlenecks, the system uses MQTT as a lightweight event bus between edge devices and backend consumers.
+      To eliminate synchronous bottlenecks, RFID events are pushed into Laravel’s queue system (Redis-backed),
+      allowing asynchronous processing by dedicated workers.
     </p>
 
     <!-- ARCHITECTURE DIAGRAM -->
@@ -64,18 +65,25 @@ WHERE id = 4529;</pre>
             <div class="text-xs text-muted-foreground">Edge Device</div>
           </div>
 
-          <div class="text-muted-foreground">↓ publish rfid/taps</div>
+          <div class="text-muted-foreground">↓ HTTP request</div>
 
           <div class="w-72 rounded-lg border bg-muted p-4 text-center">
-            <div class="font-semibold">MQTT Broker</div>
-            <div class="text-xs text-muted-foreground">Message Queue</div>
+            <div class="font-semibold">Laravel API</div>
+            <div class="text-xs text-muted-foreground">Ingestion Endpoint</div>
           </div>
 
-          <div class="text-muted-foreground">↓ async consume</div>
+          <div class="text-muted-foreground">↓ dispatch job</div>
 
           <div class="w-72 rounded-lg border bg-muted p-4 text-center">
-            <div class="font-semibold">ASP.NET Workers</div>
-            <div class="text-xs text-muted-foreground">Background Consumers</div>
+            <div class="font-semibold">Laravel Queue (Redis)</div>
+            <div class="text-xs text-muted-foreground">Asynchronous Job Bus</div>
+          </div>
+
+          <div class="text-muted-foreground">↓ processed by</div>
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">Laravel Queue Workers</div>
+            <div class="text-xs text-muted-foreground">Horizon / Supervisor</div>
           </div>
 
           <div class="text-muted-foreground">↓ persist</div>
@@ -103,6 +111,10 @@ WHERE id = 4529;</pre>
 }</pre>
     </div>
 
+    <p class="text-sm text-muted-foreground mt-4">
+      Each event is processed idempotently using <code>event_uuid</code> uniqueness constraints to prevent duplicate ingestion during retries or network replay scenarios.
+    </p>
+
   </section>
 
   <!-- SECTION 3 -->
@@ -119,7 +131,7 @@ WHERE id = 4529;</pre>
           Authorization Cache
         </h4>
         <p>
-          Local SQLite cache of valid RFID credentials for offline validation.
+          Local SQLite cache of RFID credentials used for offline validation at the edge device.
         </p>
       </div>
 
@@ -128,16 +140,16 @@ WHERE id = 4529;</pre>
           Local Event Storage
         </h4>
         <p>
-          Buffered event log stored locally with timestamp preservation during outages.
+          Temporarily stores RFID events locally during network outages with preserved timestamps.
         </p>
       </div>
 
       <div class="rounded-lg border bg-muted p-4">
         <h4 class="font-semibold text-foreground mb-2">
-          Reconnection Replay
+          Replay Mechanism
         </h4>
         <p>
-          Ordered batch replay to MQTT broker after network restoration.
+          Buffered events are replayed in order once connectivity is restored, using idempotent ingestion to prevent duplicates.
         </p>
       </div>
 
@@ -149,18 +161,23 @@ WHERE id = 4529;</pre>
   <section class="rounded-xl border bg-card p-8 space-y-6">
 
     <h2 class="text-lg font-semibold text-foreground">
-      4. Real-Time UI Synchronization via SSE
+      4. Real-Time UI Synchronization via Server-Sent Events (SSE)
     </h2>
 
     <p class="text-sm text-muted-foreground">
-      Instead of polling, Server-Sent Events push updates directly to dashboards when new ledger entries are committed.
+      Instead of polling, Laravel broadcasts events to connected clients using Server-Sent Events (SSE) after successful processing.
     </p>
 
     <ul class="list-disc pl-5 text-sm text-muted-foreground space-y-2">
-      <li>Workers publish internal events after DB write</li>
-      <li>SSE stream pushes updates to browser clients</li>
-      <li>UI updates occur in near real-time (sub-second latency)</li>
+      <li>Queue worker processes RFID event</li>
+      <li>Database transaction commits successfully</li>
+      <li>Event is broadcast to SSE stream</li>
+      <li>Dashboard updates in near real-time (sub-second latency)</li>
     </ul>
+
+    <p class="text-sm text-muted-foreground mt-4">
+      SSE updates are emitted only after database commit to maintain consistency between persisted state and UI state.
+    </p>
 
   </section>
 
