@@ -19,20 +19,21 @@ description: Deployment model, high-level component diagrams, and API authorizat
     <h2 class="font-medium text-lg text-foreground mb-2">1. Deployment Architecture: On-Premise Core</h2>
 
     <p>
-      During the architectural phase of this Capstone, a key design decision was choosing between a cloud-native SaaS model and an on-premise infrastructure. We ultimately designed and built CAMECO HRIS as an <strong>on-premise enterprise platform</strong>.
+      During the architectural phase of this Capstone, a key decision was choosing between cloud SaaS and on-premise deployment.
+      The system was designed as an <strong>on-premise Laravel-based enterprise platform</strong>.
     </p>
 
     <div class="p-4 rounded-lg border border-border bg-secondary/10 space-y-3">
       <h3 class="font-medium text-foreground">Why On-Premise?</h3>
       <ul class="list-disc pl-5 space-y-2">
         <li>
-          <strong>Intranet Latency Constraints:</strong> RFID-based gate entry requires sub-100ms response times to ensure uninterrupted employee flow.
+          <strong>Intranet Latency Constraints:</strong> RFID-based gate entry requires sub-100ms response times for smooth throughput.
         </li>
         <li>
-          <strong>Offline Resilience:</strong> The system must continue operating even during WAN outages using local event buffering and queueing.
+          <strong>Offline Resilience:</strong> The system continues operating during WAN outages using local buffering and queued ingestion.
         </li>
         <li>
-          <strong>Strict Data Residency:</strong> Employee and payroll data remain within internal infrastructure to comply with the Philippine Data Privacy Act of 2012.
+          <strong>Strict Data Residency:</strong> Sensitive HR and payroll data remains inside internal infrastructure for compliance with the Philippine Data Privacy Act of 2012.
         </li>
       </ul>
     </div>
@@ -40,15 +41,57 @@ description: Deployment model, high-level component diagrams, and API authorizat
     <h2 class="font-medium text-lg text-foreground mt-8 mb-2">2. High-Level Components & Data Flows</h2>
 
     <p>
-      The platform consists of four decoupled layers communicating via an intranet network:
+      The system is composed of four primary layers communicating over an internal network:
     </p>
 
-    <!-- (Diagram unchanged for brevity, no architecture logic changes needed here) -->
+    <!-- ARCHITECTURE DIAGRAM (RESTORED + FIXED) -->
+    <div class="my-8 not-prose">
+      <div class="rounded-xl border bg-background p-6">
+
+        <div class="flex flex-col items-center gap-4">
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">RFID Reader</div>
+            <div class="text-xs text-muted-foreground">Edge Device</div>
+          </div>
+
+          <div class="text-muted-foreground">↓ HTTP Ingestion Request</div>
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">Laravel API Layer</div>
+            <div class="text-xs text-muted-foreground">REST + Authentication + Validation</div>
+          </div>
+
+          <div class="text-muted-foreground">↓ dispatch job</div>
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">Laravel Queue (Redis)</div>
+            <div class="text-xs text-muted-foreground">Asynchronous Event Processing Bus</div>
+          </div>
+
+          <div class="text-muted-foreground">↓ processed by</div>
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">Laravel Queue Workers</div>
+            <div class="text-xs text-muted-foreground">Horizon / Supervisor</div>
+          </div>
+
+          <div class="text-muted-foreground">↓ persist</div>
+
+          <div class="w-72 rounded-lg border bg-muted p-4 text-center">
+            <div class="font-semibold">PostgreSQL Database</div>
+            <div class="text-xs text-muted-foreground">Relational + Event Ledger Schema</div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
 
     <ul class="list-disc pl-5 space-y-2">
-      <li><strong>Client Application Layer:</strong> Admin portal built with Laravel Blade + frontend assets, communicating via REST APIs.</li>
-      <li><strong>API Service Layer:</strong> Laravel application handling business logic (scheduling, leave processing, payroll, reporting).</li>
-      <li><strong>Message Ingestion Bus:</strong> MQTT/RabbitMQ broker decoupling RFID events from backend processing.</li>
+      <li><strong>Client Application Layer:</strong> Laravel Blade + frontend assets communicating via REST APIs.</li>
+      <li><strong>API Service Layer:</strong> Laravel handles business logic (attendance, payroll, recruitment, reporting).</li>
+      <li><strong>Message Ingestion Layer:</strong> Laravel Queue system (Redis) replaces external message brokers.</li>
       <li><strong>Database Layer:</strong> PostgreSQL with relational schema and append-only event ledger design.</li>
     </ul>
 
@@ -70,45 +113,40 @@ description: Deployment model, high-level component diagrams, and API authorizat
       </figure>
     </div>
 
-    <h2 class="font-medium text-lg text-foreground mt-8 mb-2">3. Role-Based Access Control (RBAC) at API Level</h2>
+    <h2 class="font-medium text-lg text-foreground mt-8 mb-2">3. Role-Based Access Control (RBAC) using Spatie</h2>
 
     <p>
-      The system implements strict role-based access control using Laravel’s authorization layer powered by the <strong>Spatie Laravel Permission</strong> package.
+      The system implements strict role-based access control using Laravel’s authorization layer powered by
+      <strong>Spatie Laravel Permission</strong>.
     </p>
 
     <p>
-      Instead of embedding authorization logic inside controllers, access control is enforced via middleware and permission gates, ensuring consistent security across all modules.
+      Authorization is enforced through middleware and policies rather than controller-level checks,
+      ensuring consistent security across modules.
     </p>
 
     <h3 class="font-medium text-base text-foreground mt-4 mb-2">Authorization Mechanism</h3>
 
-    <p>
-      At runtime, the authenticated user’s roles and permissions are resolved from the database and cached for performance. The system follows a hierarchical model:
-    </p>
-
     <ul class="list-disc pl-5 space-y-2">
-      <li>Users → Roles → Permissions</li>
-      <li>Direct user permissions (optional overrides)</li>
-      <li>Role-based aggregated permissions</li>
+      <li>Users are assigned roles via Spatie role system</li>
+      <li>Roles contain aggregated permissions</li>
+      <li>Direct permissions can override role-level access when explicitly granted</li>
+      <li>Permissions are cached using Laravel cache (Redis or file driver)</li>
     </ul>
 
     <p>
-      Access is enforced using Laravel middleware provided by Spatie:
+      Example middleware enforcement:
     </p>
 
     <pre><code>Route::middleware(['auth', 'role:HR Manager'])->group(function () {
     Route::get('/employees', [EmployeeController::class, 'index']);
-});</code></pre>
+});
 
-    <pre><code>Route::middleware(['auth', 'permission:view payroll'])->group(function () {
+Route::middleware(['auth', 'permission:view payroll'])->group(function () {
     Route::get('/payroll', [PayrollController::class, 'index']);
 });</code></pre>
 
     <h3 class="font-medium text-base text-foreground mt-4 mb-2">Database Structure</h3>
-
-    <p>
-      The system uses Spatie’s standard RBAC schema:
-    </p>
 
     <ul class="list-disc pl-5 space-y-2">
       <li>users</li>
@@ -119,31 +157,13 @@ description: Deployment model, high-level component diagrams, and API authorizat
       <li>role_has_permissions</li>
     </ul>
 
-    <h3 class="font-medium text-base text-foreground mt-4 mb-2">Performance Optimization</h3>
-
-    <p>
-      Permissions are cached using Laravel’s caching system (typically Redis or file cache), reducing database load during frequent authorization checks such as dashboard rendering and RFID event processing.
-    </p>
-
-    <p>
-      Cache invalidation is automatically handled when roles or permissions are updated.
-    </p>
-
     <h3 class="font-medium text-base text-foreground mt-4 mb-2">Security Model</h3>
 
-    <p>
-      The system enforces authorization across multiple layers:
-    </p>
-
     <ul class="list-disc pl-5 space-y-2">
-      <li>Route middleware layer for early request blocking</li>
-      <li>Policy layer for model-level constraints</li>
-      <li>Service layer enforcement for critical business logic protection</li>
+      <li>Route middleware enforcement (early request blocking)</li>
+      <li>Policy layer for model-level authorization</li>
+      <li>Service-layer checks for sensitive business logic (payroll, approvals)</li>
     </ul>
-
-    <p>
-      This layered model ensures defense-in-depth across payroll, attendance, recruitment, and administrative modules.
-    </p>
 
     <h2 class="font-medium text-lg text-foreground mt-8 mb-2">4. Role-Based Dashboard Previews</h2>
 
@@ -192,10 +212,10 @@ description: Deployment model, high-level component diagrams, and API authorizat
 
     <ul class="list-disc pl-5 space-y-3">
       <li>
-        <strong>Strong Consistency vs Eventual Consistency:</strong> Core HR data uses ACID transactions, while RFID event ingestion is processed asynchronously.
+        <strong>Strong Consistency vs Eventual Consistency:</strong> Core HR data uses ACID transactions, while RFID events are processed asynchronously via Laravel queues.
       </li>
       <li>
-        <strong>No Direct Database Access (NDDA):</strong> All database operations are mediated through application services; raw SQL operations are restricted.
+        <strong>No Direct Database Access (NDDA):</strong> All data mutations go through Laravel service layer; raw SQL operations are restricted.
       </li>
     </ul>
 
