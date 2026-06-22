@@ -370,12 +370,20 @@ description: Deployment model, high-level component diagrams, and API authorizat
     </svg>
   </div>
 
-  <ul class="arch-ul">
-    <li><strong>Client application layer</strong> — Laravel Blade + frontend assets communicating via REST APIs.</li>
-    <li><strong>API service layer</strong> — Laravel handles business logic (attendance, payroll, recruitment, reporting).</li>
-    <li><strong>Message ingestion layer</strong> — Laravel Queue system (Redis) replaces external message brokers.</li>
-    <li><strong>Database layer</strong> — PostgreSQL with relational schema and append-only event ledger design.</li>
-  </ul>
+<ul class="arch-ul">
+    <li>
+        <strong>Presentation layer</strong> — React.js and TypeScript interfaces delivered through Inertia.js, enabling server-driven page rendering across multiple dashboards, administrative modules, and business workflows.
+    </li>
+    <li>
+        <strong>Application layer</strong> — Laravel manages authentication, authorization, attendance tracking, payroll processing, recruitment workflows, employee management, and reporting services.
+    </li>
+    <li>
+        <strong>Background processing layer</strong> — Redis-backed Laravel Queue workers handle asynchronous tasks, notifications, report generation, scheduled jobs, and other long-running business processes.
+    </li>
+    <li>
+        <strong>Database layer</strong> — PostgreSQL stores transactional and historical data using a relational schema complemented by an append-only event ledger for auditing and traceability.
+    </li>
+</ul>
 
   <h3 class="arch-h3">ATS &amp; recruitment component interfaces</h3>
 
