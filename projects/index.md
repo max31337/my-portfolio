@@ -26,6 +26,49 @@ title: Projects
         <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary" href="https://github.com/max31337/test-react-program" target="_blank" rel="noopener">Source</a>
       </div>
     </article>
+
+    <!-- Open Source: ClinkKit -->
+  <article class="rounded-lg border border-border p-4 hover:bg-accent">
+    <a class="block" href="{{ '/projects/clinkkit/' | relative_url }}">
+      <img class="rounded-md border border-border mb-3"
+          src="{{ '/assets/projects/clinkkit/clinkkit-banner.svg' | relative_url }}"
+          alt="ClinkKit preview" />
+
+      <div class="flex items-center gap-2">
+        <h2 class="font-medium">ClinkKit</h2>
+
+        <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+          <span class="size-1.5 rounded-full bg-emerald-500"></span>
+          Active
+        </span>
+
+        <span class="text-[10px] inline-flex items-center gap-1 rounded border border-border px-1.5 py-0.5 bg-secondary/60">
+          Open Source
+        </span>
+      </div>
+    </a>
+
+    <p class="text-sm text-muted-foreground">
+      Modular productivity toolkit for Clink that enhances Windows Command Prompt with extensible Lua modules. Currently features HistoryGuard for intelligent command-history protection.
+    </p>
+
+    <div class="mt-3 flex gap-3 text-xs">
+      <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary {% if nil %}pointer-events-none opacity-50{% endif %}"
+         href="https://clinkkit.pages.dev/"
+         target="_blank"
+         rel="noopener">
+        Official Website
+      </a>
+
+      <a class="rounded-md border border-border px-2 py-1 hover:bg-secondary"
+        href="https://github.com/max31337/ClinkKit"
+        target="_blank"
+        rel="noopener">
+        Source
+      </a>
+    </div>
+  </article>
+
     <!-- WIP: FlowForge (TALL) -->
     <article class="rounded-lg border border-border p-4 hover:bg-accent">
       <a class="block" href="{{ '/projects/flowforge/' | relative_url }}">
